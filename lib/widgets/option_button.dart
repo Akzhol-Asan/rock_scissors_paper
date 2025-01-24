@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class OptionButton extends StatelessWidget {
+  final VoidCallback onPressed;
   final String imageAddress;
-  const OptionButton({super.key, required this.imageAddress});
+
+  const OptionButton({
+    super.key,
+    required this.imageAddress,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +20,7 @@ class OptionButton extends StatelessWidget {
           borderRadius: BorderRadius.zero,
         ),
       ),
-      onPressed: () {},
+      onPressed: onPressed,
       child: Image.asset(
         imageAddress,
         width: 125,

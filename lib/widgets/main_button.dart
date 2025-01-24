@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
+  final VoidCallback onPressed;
   final String buttonText;
 
   const Button({
     super.key,
     required this.buttonText,
+    required this.onPressed,
   });
 
   @override
@@ -18,7 +20,7 @@ class Button extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
       ),
-      onPressed: () {},
+      onPressed: onPressed,
       child: Text(
         buttonText,
         style: TextStyle(

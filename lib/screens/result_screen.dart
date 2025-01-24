@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:home_work_25/widgets/main_button.dart';
-import 'package:home_work_25/widgets/option_button.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key});
+  final VoidCallback onPressed;
+  final String? pressedImage;
+  final String? randomImage;
+  final String resultTitle;
+
+  const ResultScreen({
+    super.key,
+    required this.onPressed,
+    this.pressedImage,
+    this.randomImage,
+    required this.resultTitle,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +23,7 @@ class ResultScreen extends StatelessWidget {
           children: [
             SizedBox(height: 150),
             Text(
-              'You Won!',
+              resultTitle,
               style: TextStyle(
                 fontWeight: FontWeight.w900,
                 fontSize: 32,
@@ -23,15 +33,31 @@ class ResultScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Transform.scale(
-                  scaleX: -1,
-                  child: OptionButton(imageAddress: 'assets/images/rock.png'),
-                ),
-                OptionButton(imageAddress: 'assets/images/scissors.png'),
+                if (pressedImage != null)
+                  Transform.scale(
+                    scaleX: -1,
+                    child: Image.asset(
+                      pressedImage!,
+                      width: 125,
+                      height: 125,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                SizedBox(width: 50),
+                if (randomImage != null)
+                  Image.asset(
+                    randomImage!,
+                    width: 125,
+                    height: 125,
+                    fit: BoxFit.cover,
+                  ),
               ],
             ),
             SizedBox(height: 200),
-            Button(buttonText: 'RESTART'),
+            Button(
+              buttonText: 'RESTART',
+              onPressed: onPressed,
+            ),
           ],
         ),
       ),

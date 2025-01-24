@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:home_work_25/widgets/option_button.dart';
 
 class GameScreen extends StatelessWidget {
-  const GameScreen({super.key});
+  final Function(String) onPressed;
+
+  const GameScreen({
+    super.key,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +26,20 @@ class GameScreen extends StatelessWidget {
             SizedBox(height: 50),
             Column(
               children: [
-                OptionButton(imageAddress: 'assets/images/rock.png'),
+                OptionButton(
+                  imageAddress: 'assets/images/rock.png',
+                  onPressed: () => onPressed('assets/images/rock.png'),
+                ),
                 SizedBox(height: 50),
-                OptionButton(imageAddress: 'assets/images/scissors.png'),
+                OptionButton(
+                  imageAddress: 'assets/images/scissors.png',
+                  onPressed: () => onPressed('assets/images/scissors.png'),
+                ),
                 SizedBox(height: 50),
-                OptionButton(imageAddress: 'assets/images/paper.png'),
+                OptionButton(
+                  imageAddress: 'assets/images/paper.png',
+                  onPressed: () => onPressed('assets/images/paper.png'),
+                ),
               ],
             ),
           ],

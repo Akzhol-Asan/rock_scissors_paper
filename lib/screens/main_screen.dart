@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:home_work_25/widgets/main_button.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+  final VoidCallback onPressed;
+
+  const MainScreen({
+    super.key,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +17,7 @@ class MainScreen extends StatelessWidget {
           children: [
             SizedBox(height: 150),
             Text(
-              'The Ultimate RPS Battle',
+              'The Ultimate RSP Battle',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
@@ -21,7 +26,10 @@ class MainScreen extends StatelessWidget {
             SizedBox(height: 150),
             Image.asset('assets/images/main_banner.png'),
             SizedBox(height: 150),
-            Button(buttonText: 'START GAME'),
+            Button(
+              buttonText: 'START GAME',
+              onPressed: onPressed,
+            ),
           ],
         ),
       ),
