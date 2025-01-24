@@ -15,7 +15,7 @@ class GameScreen extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            SizedBox(height: 150),
+            SizedBox(height: 100),
             Text(
               'Choose your option!',
               style: TextStyle(

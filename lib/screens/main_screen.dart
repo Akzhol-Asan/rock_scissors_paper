@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            SizedBox(height: 150),
+            SizedBox(height: 100),
             Text(
               'The Ultimate RSP Battle',
               style: TextStyle(
